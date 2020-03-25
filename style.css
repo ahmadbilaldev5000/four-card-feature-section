@@ -1,0 +1,123 @@
+:root {
+    --colored-border-top-width: 0.3rem;
+    --box-shadow-color: hsl(234, 100%, 92%);
+}
+
+body {
+    background-color: hsl(0, 0%, 98%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: hsl(234, 12%, 34%);
+}
+
+h1,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    margin: 0.3rem 0;
+}
+
+.container {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    width: 40%;
+    margin-bottom: 2rem;
+}
+
+.header h1:first-child,
+p {
+    font-weight: 200;
+}
+
+.header p {
+    margin-top: 1rem;
+}
+
+.item-list {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        'supervisor team-builder calculator'
+        'supervisor karma calculator';
+    align-items: center;
+    gap: 2rem;
+}
+
+.item {
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 20px 20px -10px var(--box-shadow-color);
+}
+
+.item p {
+    color: hsl(229, 6%, 66%);
+    margin-bottom: 3rem;
+}
+
+.item img {
+    align-self: flex-end;
+}
+
+#supervisor {
+    grid-area: supervisor;
+    border-top: var(--colored-border-top-width) solid hsl(180, 62%, 55%);
+}
+
+#team-builder {
+    grid-area: team-builder;
+    border-top: var(--colored-border-top-width) solid hsl(0, 78%, 62%);
+}
+
+#karma {
+    grid-area: karma;
+    border-top: var(--colored-border-top-width) solid hsl(34, 97%, 64%);
+}
+
+#calculator {
+    grid-area: calculator;
+    border-top: var(--colored-border-top-width) solid hsl(212, 86%, 64%);
+}
+
+@media (max-width: 767px) {
+    body {
+        background-color: #fff;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .header {
+        width: 90%;
+    }
+
+    .item-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-areas:
+            'supervisor'
+            'team-builder'
+            'karma'
+            'calculator';
+    }
+
+    .item {
+        box-shadow: 0 15px 20px -5px var(--box-shadow-color);
+    }
+}
